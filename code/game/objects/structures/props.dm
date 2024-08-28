@@ -1385,3 +1385,59 @@
 		playsound(loc, initial(emote.sound), 50, FALSE)
 	return TRUE
 
+/obj/structure/prop/screen_briefing
+	name = "briefing screen"
+	desc = "It's off, for now."
+	icon = 'icons/obj/structures/machinery/status_display.dmi'
+	icon_state = "frame"
+	var/obj/structure/prop/screen_briefing/host/parent
+	var/id = "test"
+	var/on = FALSE
+
+/obj/structure/prop/screen_briefing/get_examine_text(mob/user)
+	. = ..()
+
+	if(on && parent && parent.current_user)
+		to_chat(user, SPAN_NOTICE("You recognize the person on the screen..."))
+
+		user.examine(parent.current_user)
+
+/obj/structure/prop/screen_briefing/host
+	id = "test"
+	var/obj/structure/prop/screen_briefing/child
+	var/mob/living/carbon/human/current_user
+
+/obj/structure/prop/screen_briefing/host/Initialize()
+	. = ..()
+	for(var/obj/structure/prop/screen_briefing/screen_to_find in world)
+		if(screen_to_find.id == id && screen_to_find != src)
+			child = screen_to_find
+			child.parent = src
+			return
+
+/obj/structure/prop/screen_briefing/host/attack_hand(mob/user as mob)
+	if(!child.on)
+		child.icon_state = "frame_colonel"
+		child.on = TRUE
+		child.set_light(1, 1, "#51A000")
+		child.visible_message("[icon2html(child, viewers(child))] [SPAN_NOTICE("Briefing screen flickers and comes to life.")]")
+		child.desc = "It's on. Receive your orders, soldier."
+		playsound(child, 'sound/effects/nightvision.ogg', 35)
+	current_user = user
+	var/message = tgui_input_text(user, "What should it say?", "BRIEFING")
+	if(!message)
+		return
+
+	child.AddComponent(/datum/component/atom_narrate, "<span class='soghun'>[message]</span>", NARRATION_METHOD_SAY, FALSE, key_name(user))
+	flick("frame_colonel_speak", child)
+
+/obj/structure/prop/screen_briefing/host/clicked(mob/user, list/mods)
+	if (mods["alt"])
+		child.on = FALSE
+		child.icon_state = "frame_colonel_off"
+		child.set_light(0, 0, "#51A000")
+		child.visible_message("[icon2html(child, viewers(child))] [SPAN_NOTICE("Briefing screen flickers and goes dark.")]")
+		playsound(child, 'sound/machines/click.ogg', 15, 1)
+		child.desc = "It's off. Get to mission."
+		return TRUE
+	return ..()

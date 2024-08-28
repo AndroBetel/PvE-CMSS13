@@ -190,6 +190,24 @@
 	desc = "A small lighting fixture that is fitted with a bright blue fluorescent light bulb. Looking at it for too long makes your eyes go watery."
 	light_type = /obj/item/light_bulb/bulb
 
+/obj/structure/machinery/light/small/upp_ship
+	light_color = "#FF4500"
+	desc = "The lights are flickering gently to the heartbeat of ship's engine."
+
+/obj/structure/machinery/light/small/upp_ship/Initialize()
+	. = ..()
+	start_processing()
+
+/obj/structure/machinery/light/small/upp_ship/process()
+	if(status)
+		stop_processing()
+		return
+
+	if(prob(50))
+		set_light(light_range, 0.5)
+		sleep(rand(5, 10))
+		set_light(light_range, 1)
+
 /obj/structure/machinery/light/double
 	icon_state = "ptube1"
 	base_state = "ptube"

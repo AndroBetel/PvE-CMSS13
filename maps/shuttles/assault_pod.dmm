@@ -1,0 +1,363 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/obj/structure/barricade/metal,
+/turf/open/floor/strata{
+	dir = 4;
+	icon_state = "floor3"
+	},
+/area/shuttle/ds_upp)
+"e" = (
+/turf/closed/shuttle/ert{
+	icon_state = "leftengine_3";
+	opacity = 0
+	},
+/area/shuttle/ds_upp)
+"f" = (
+/turf/closed/shuttle/ert{
+	icon_state = "leftengine_11";
+	opacity = 0
+	},
+/area/shuttle/ds_upp)
+"g" = (
+/obj/structure/machinery/sentry_holder/upp{
+	pixel_y = 26;
+	pixel_x = -26
+	},
+/turf/template_noop,
+/area/shuttle/ds_upp)
+"h" = (
+/obj/structure/machinery/sentry_holder/upp{
+	pixel_y = -26;
+	pixel_x = -26
+	},
+/turf/template_noop,
+/area/shuttle/ds_upp)
+"i" = (
+/obj/structure/barricade/metal{
+	dir = 1
+	},
+/turf/open/floor/strata{
+	dir = 4;
+	icon_state = "floor3"
+	},
+/area/shuttle/ds_upp)
+"m" = (
+/turf/closed/shuttle/ert{
+	icon_state = "rightengine_3";
+	opacity = 0
+	},
+/area/shuttle/ds_upp)
+"n" = (
+/turf/closed/shuttle/ert{
+	icon_state = "upp3"
+	},
+/area/shuttle/ds_upp)
+"o" = (
+/obj/structure/surface/table/reinforced/almayer_B,
+/obj/structure/machinery/computer/shuttle/dropship/flight/small,
+/turf/open/floor/strata{
+	dir = 4;
+	icon_state = "floor3"
+	},
+/area/shuttle/ds_upp)
+"q" = (
+/turf/closed/shuttle/ert{
+	icon_state = "upp8"
+	},
+/area/shuttle/ds_upp)
+"r" = (
+/turf/closed/shuttle/ert{
+	icon_state = "rightengine_2";
+	opacity = 0
+	},
+/area/shuttle/ds_upp)
+"s" = (
+/obj/structure/machinery/door/airlock/dropship_hatch/upp{
+	id = "port_door";
+	icon = 'icons/obj/structures/doors/dropshipupp_pilot.dmi'
+	},
+/turf/open/floor/strata{
+	dir = 4;
+	icon_state = "floor3"
+	},
+/area/shuttle/ds_upp)
+"t" = (
+/obj/structure/bed/chair/vehicle{
+	dir = 4;
+	pixel_x = -9
+	},
+/turf/open/floor/strata{
+	dir = 4;
+	icon_state = "floor3"
+	},
+/area/shuttle/ds_upp)
+"u" = (
+/turf/closed/shuttle/ert{
+	icon_state = "leftengine_2";
+	opacity = 0
+	},
+/area/shuttle/ds_upp)
+"v" = (
+/turf/closed/shuttle/ert{
+	icon_state = "upp22"
+	},
+/area/shuttle/ds_upp)
+"w" = (
+/turf/closed/shuttle/ert{
+	icon_state = "upp1"
+	},
+/area/shuttle/ds_upp)
+"x" = (
+/obj/structure/machinery/sentry_holder/upp{
+	pixel_y = 26;
+	pixel_x = 26
+	},
+/turf/template_noop,
+/area/shuttle/ds_upp)
+"y" = (
+/obj/structure/stairs{
+	dir = 1
+	},
+/turf/open/floor/strata{
+	dir = 4;
+	icon_state = "floor3"
+	},
+/area/shuttle/ds_upp)
+"z" = (
+/turf/open/floor/strata{
+	dir = 4;
+	icon_state = "floor3"
+	},
+/area/shuttle/ds_upp)
+"A" = (
+/obj/docking_port/mobile/marine_dropship/assault_pod{
+	dwidth = 4;
+	dheight = 4
+	},
+/turf/open/floor/strata{
+	dir = 4;
+	icon_state = "floor3"
+	},
+/area/shuttle/ds_upp)
+"D" = (
+/obj/structure/stairs,
+/turf/open/floor/strata{
+	dir = 4;
+	icon_state = "floor3"
+	},
+/area/shuttle/ds_upp)
+"E" = (
+/turf/closed/shuttle/ert{
+	icon_state = "upp4"
+	},
+/area/shuttle/ds_upp)
+"F" = (
+/turf/closed/shuttle/ert{
+	icon_state = "upp_leftengine"
+	},
+/area/shuttle/ds_upp)
+"G" = (
+/turf/closed/shuttle/ert{
+	icon_state = "upp201"
+	},
+/area/shuttle/ds_upp)
+"H" = (
+/obj/structure/platform{
+	dir = 1
+	},
+/turf/open/floor/strata{
+	dir = 4;
+	icon_state = "floor3"
+	},
+/area/shuttle/ds_upp)
+"J" = (
+/turf/closed/shuttle/ert{
+	icon_state = "upp_rightengine"
+	},
+/area/shuttle/ds_upp)
+"K" = (
+/obj/structure/machinery/door/airlock/dropship_hatch/upp{
+	dir = 8;
+	id = "starboard_door";
+	icon = 'icons/obj/structures/doors/dropshipupp_pilot.dmi'
+	},
+/turf/open/floor/strata{
+	dir = 4;
+	icon_state = "floor3"
+	},
+/area/shuttle/ds_upp)
+"L" = (
+/turf/closed/shuttle/ert{
+	icon_state = "upp2"
+	},
+/area/shuttle/ds_upp)
+"M" = (
+/turf/closed/shuttle/ert{
+	icon_state = "T61"
+	},
+/area/shuttle/ds_upp)
+"N" = (
+/obj/structure/platform,
+/turf/open/floor/strata{
+	dir = 4;
+	icon_state = "floor3"
+	},
+/area/shuttle/ds_upp)
+"O" = (
+/turf/closed/shuttle/ert{
+	icon_state = "upp9"
+	},
+/area/shuttle/ds_upp)
+"P" = (
+/turf/closed/shuttle/ert{
+	icon_state = "T151"
+	},
+/area/shuttle/ds_upp)
+"S" = (
+/turf/closed/shuttle/ert{
+	icon_state = "rightengine_11";
+	opacity = 0
+	},
+/area/shuttle/ds_upp)
+"T" = (
+/obj/structure/bed/chair/vehicle{
+	pixel_x = 9;
+	dir = 8
+	},
+/turf/open/floor/strata{
+	dir = 4;
+	icon_state = "floor3"
+	},
+/area/shuttle/ds_upp)
+"U" = (
+/turf/closed/shuttle/ert{
+	icon_state = "upp251"
+	},
+/area/shuttle/ds_upp)
+"V" = (
+/turf/template_noop,
+/area/template_noop)
+"W" = (
+/turf/closed/shuttle/ert{
+	icon_state = "upp5"
+	},
+/area/shuttle/ds_upp)
+"X" = (
+/obj/structure/surface/table/reinforced/almayer_B,
+/turf/open/floor/strata{
+	dir = 4;
+	icon_state = "floor3"
+	},
+/area/shuttle/ds_upp)
+"Y" = (
+/obj/structure/machinery/sentry_holder/upp{
+	pixel_y = -26;
+	pixel_x = 26
+	},
+/turf/template_noop,
+/area/shuttle/ds_upp)
+"Z" = (
+/turf/closed/shuttle/ert{
+	icon_state = "upp23"
+	},
+/area/shuttle/ds_upp)
+
+(1,1,1) = {"
+V
+V
+M
+F
+e
+u
+f
+V
+V
+"}
+(2,1,1) = {"
+Y
+G
+E
+E
+E
+E
+E
+w
+x
+"}
+(3,1,1) = {"
+G
+v
+t
+t
+o
+t
+t
+q
+w
+"}
+(4,1,1) = {"
+L
+N
+i
+z
+z
+z
+a
+H
+L
+"}
+(5,1,1) = {"
+s
+y
+z
+z
+A
+z
+z
+D
+K
+"}
+(6,1,1) = {"
+L
+N
+i
+z
+z
+z
+a
+H
+L
+"}
+(7,1,1) = {"
+U
+Z
+T
+T
+X
+T
+T
+O
+n
+"}
+(8,1,1) = {"
+h
+U
+W
+W
+W
+W
+W
+n
+g
+"}
+(9,1,1) = {"
+V
+V
+P
+J
+m
+r
+S
+V
+V
+"}

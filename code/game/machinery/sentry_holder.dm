@@ -117,3 +117,6 @@
 /obj/structure/machinery/sentry_holder/almayer
 	turret_path = /obj/structure/machinery/defenses/sentry/premade/deployable/almayer
 	require_red_alert = TRUE
+
+/obj/structure/machinery/sentry_holder/upp
+	turret_path = /obj/structure/machinery/defenses/sentry/upp/premade/omni

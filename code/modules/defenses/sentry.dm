@@ -64,6 +64,8 @@
 
 	var/start_up_message = "Default systems initiated."
 
+	var/obj/structure/machinery/sentry_holder/deployment_system
+
 	/// Delay sending no ammo messages
 	COOLDOWN_DECLARE(no_ammo_message_cooldown)
 
@@ -580,7 +582,6 @@
 	faction_group = FACTION_LIST_MARINE
 	fire_delay = 1
 	ammo = new /obj/item/ammo_magazine/sentry/premade
-	var/obj/structure/machinery/sentry_holder/deployment_system
 
 /obj/structure/machinery/defenses/sentry/premade/deployable/Destroy()
 	if(deployment_system)
@@ -607,13 +608,13 @@
 	omni_directional = TRUE
 	choice_categories = list()
 	selected_categories = list()
-	var/obj/structure/dropship_equipment/sentry_holder/deployment_system
+	var/obj/structure/dropship_equipment/sentry_holder/dropship_deployment_system
 	var/obj/structure/machinery/camera/cas/linked_cam
 
 /obj/structure/machinery/defenses/sentry/premade/dropship/Destroy()
-	if(deployment_system)
-		deployment_system.deployed_turret = null
-		deployment_system = null
+	if(dropship_deployment_system)
+		dropship_deployment_system.deployed_turret = null
+		dropship_deployment_system = null
 	QDEL_NULL(linked_cam)
 	. = ..()
 
@@ -778,6 +779,16 @@
 	fire_delay = 1.2
 	firing_sound = 'sound/weapons/gun_m56d_auto.ogg'
 	ammo = new /obj/item/ammo_magazine/sentry/upp
+
+/obj/structure/machinery/defenses/sentry/upp/premade
+	immobile = TRUE
+	turned_on = TRUE
+	icon_state = "premade" //for the map editor only
+	faction_group = list(FACTION_UPP)
+	static = TRUE
+
+/obj/structure/machinery/defenses/sentry/upp/premade/omni
+	omni_directional = TRUE
 
 #undef SENTRY_FIREANGLE
 #undef SENTRY_RANGE

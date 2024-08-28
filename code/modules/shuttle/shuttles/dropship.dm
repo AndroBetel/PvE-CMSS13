@@ -190,6 +190,12 @@
 	dwidth = 4
 	dheight = 8
 
+/obj/docking_port/mobile/marine_dropship/assault_pod
+	name = "Zhabka"
+	id = DROPSHIP_ASSAULT_POD
+	width = 9
+	height = 9
+
 /obj/docking_port/mobile/marine_dropship/tripoli/get_transit_path_type()
 	return /turf/open/space/transit/dropship/tripoli
 
@@ -419,3 +425,7 @@
 /datum/map_template/shuttle/tripoli
 	name = "Tripoli"
 	shuttle_id = DROPSHIP_TRIPOLI
+
+/datum/map_template/shuttle/assault_pod
+	name = "Zhabka"
+	shuttle_id = DROPSHIP_ASSAULT_POD
