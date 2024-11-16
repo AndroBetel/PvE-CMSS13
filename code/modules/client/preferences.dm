@@ -445,7 +445,19 @@ GLOBAL_LIST_INIT(bgstate_options, list(
 				dat += "<b>Records:</b> <a href=\"byond://?src=\ref[user];preference=records;record=1\"><b>Character Records</b></a><br>"
 
 			dat += "<b>Flavor Text:</b> <a href='byond://?src=\ref[user];preference=flavor_text;task=open'><b>[TextPreview(flavor_texts["general"], 15)]</b></a><br>"
+
+			dat += "<h2><b><u>Relationship Information:</u></b></h2>"
+			if(jobban_isbanned(user, "Records"))
+				dat += "<b>You are banned from using character records.</b><br>"
+			else
+				dat += "<b>Records:</b> <a href=\"byond://?src=\ref[user];preference=records;record=1\"><b>Character Records</b></a><br>"
+
+			dat += "<b>Flavor Text:</b> <a href='byond://?src=\ref[user];preference=flavor_text;task=open'><b>[TextPreview(flavor_texts["general"], 15)]</b></a><br>"
+
+
 			dat += "</div>"
+
+
 
 		if(MENU_PLTCO)
 			dat += "<div id='column1'>"
