@@ -21,11 +21,16 @@
 /datum/ammo/bullet/rifle/holo_target
 	name = "holo-targeting 10x24 bullet"
 	damage = 30
+	/// inflicts this many holo stacks per bullet hit
 	var/holo_stacks = 10
+	/// modifies the default cap limit of 100 by this amount
+	var/bonus_damage_cap_increase = 0
+	/// multiplies the default drain of 5 holo stacks per second by this amount
+	var/stack_loss_multiplier = 1
 
-/datum/ammo/bullet/rifle/holo_target/on_hit_mob(mob/M, obj/projectile/P)
+/datum/ammo/bullet/rifle/holo_target/on_hit_mob(mob/hit_mob, obj/projectile/bullet)
 	. = ..()
-	M.AddComponent(/datum/component/bonus_damage_stack, holo_stacks, world.time)
+	hit_mob.AddComponent(/datum/component/bonus_damage_stack, holo_stacks, world.time, bonus_damage_cap_increase, stack_loss_multiplier)
 
 
 /datum/ammo/bullet/rifle/holo_target/hunting
@@ -67,7 +72,7 @@
 
 /datum/ammo/bullet/rifle/ap/toxin/on_hit_mob(mob/M, obj/projectile/P)
 	. = ..()
-	M.AddComponent(/datum/component/toxic_buildup, acid_per_hit)
+	M.AddComponent(/datum/component/status_effect/toxic_buildup, acid_per_hit)
 
 /datum/ammo/bullet/rifle/ap/toxin/on_hit_turf(turf/T, obj/projectile/P)
 	. = ..()
@@ -173,8 +178,45 @@
 	))
 
 /datum/ammo/bullet/rifle/heavy/du/on_hit_mob(mob/target, obj/projectile/fired_proj)
-	target.AddComponent(/datum/component/toxic_buildup)
+	target.AddComponent(/datum/component/status_effect/toxic_buildup)
 	knockback(target, fired_proj, max_range = 2)
+
+// Terminator Smartgun
+
+/datum/ammo/bullet/rifle/heavy/dirty
+	name = "irradiated 10x28 bullet"
+	debilitate = list(0,0,0,3,0,0,0,1)
+	damage = 60
+	shrapnel_chance = SHRAPNEL_CHANCE_TIER_7
+
+/datum/ammo/bullet/rifle/heavy/ap/dirty
+	name = "irradiated armor-piercing 10x28 bullet"
+	debilitate = list(0,0,0,3,0,0,0,1)
+	damage = 45
+
+// RMC Smartgun
+
+/datum/ammo/bullet/rifle/heavy/holo_target //Royal marines smartgun bullet has only diff between regular ammo is this one does holostacks and less damage
+	name = "holo-targeting 10x28 bullet"
+	damage = 50
+	/// inflicts this many holo stacks per bullet hit
+	var/holo_stacks = 15
+	/// modifies the default cap limit of 100 by this amount
+	var/bonus_damage_cap_increase = 0
+	/// multiplies the default drain of 5 holo stacks per second by this amount
+	var/stack_loss_multiplier = 1
+
+/datum/ammo/bullet/rifle/heavy/holo_target/on_hit_mob(mob/hit_mob, obj/projectile/bullet)
+	. = ..()
+	hit_mob.AddComponent(/datum/component/bonus_damage_stack, holo_stacks, world.time, bonus_damage_cap_increase, stack_loss_multiplier)
+
+/datum/ammo/bullet/rifle/heavy/holo_target/ap
+	name = "holo-targetting armor-piercing 10x28 bullet"
+	icon_state = "bullet"
+
+	accuracy = HIT_ACCURACY_TIER_2
+	damage = 35
+	penetration = ARMOR_PENETRATION_TIER_8
 
 // Custom Specialist M4RA rounds
 
@@ -217,7 +259,7 @@
 	shell_speed = AMMO_SPEED_TIER_6
 
 /datum/ammo/bullet/rifle/heavy/spec/impact/on_hit_mob(mob/M, obj/projectile/P)
-	knockback(M, P, 32) // Can knockback basically at max range
+	knockback(M, P, 32) // Can knockback basically at max range max range is 24 tiles...
 
 /datum/ammo/bullet/rifle/heavy/spec/impact/knockback_effects(mob/living/living_mob, obj/projectile/fired_projectile)
 	if(iscarbonsizexeno(living_mob))
@@ -234,6 +276,12 @@
 			to_chat(living_mob, SPAN_HIGHDANGER("The impact knocks you off-balance!"))
 		living_mob.apply_stamina_damage(fired_projectile.ammo.damage, fired_projectile.def_zone, ARMOR_BULLET)
 
+/datum/ammo/bullet/rifle/heavy/iff/set_bullet_traits()
+	. = ..()
+	LAZYADD(traits_to_give, list(
+		BULLET_TRAIT_ENTRY(/datum/element/bullet_trait_iff)
+	))
+
 //====== 10x31 Type 71
 
 /datum/ammo/bullet/rifle/heavy/upp
@@ -248,6 +296,18 @@
 // Misc
 
 /datum/ammo/bullet/rifle/mar40
-	name = "7.62x39mm rifle bullet"
+	name = "8.8x29 rifle bullet"
 	damage = 45
-	penetration = ARMOR_PENETRATION_TIER_2
+
+/datum/ammo/bullet/rifle/m16
+	name = "5.56x45 rifle bullet"
+	damage = 35
+
+/datum/ammo/bullet/rifle/m16/ap
+	name = "armor-piercing 5.56x45 rifle bullet"
+	damage = 30
+	penetration = ARMOR_PENETRATION_TIER_5
+
+/datum/ammo/bullet/rifle/ar10
+	name = "7.62x51 rifle bullet"
+	damage = 55

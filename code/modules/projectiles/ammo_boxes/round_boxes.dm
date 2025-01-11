@@ -136,7 +136,7 @@
 
 /obj/item/ammo_box/rounds/type71/heap
 	name = "rifle ammunition box (10x31mm HEAP)"
-	desc = "A 10x31mm high-explosive armor-piercing ammunition box. Used to refill Type71 HEAP magazines. It comes with a leather strap allowing to wear it on the back."
+	desc = "A 10x31mm high-explosive armor-piercing ammunition box. Used to refill Type 71 and QYJ-72 HEAP magazines. It comes with a leather strap allowing to wear it on the back."
 	icon_state = "base_type71"
 	overlay_gun_type = "_rounds_type71"
 	overlay_content = "_type71_heap"
@@ -155,3 +155,43 @@
 	bullet_amount = 1500
 	max_bullet_amount = 1500
 	caliber = "10x31mm"
+
+//----------------9mm Pistol Ammunition Boxes (for mod88, M4A3 pistols)------------------
+
+/obj/item/ammo_box/rounds/pistol
+	name = "\improper pistol ammunition box (9mm)"
+	desc = "A 9mm ammunition box. Used to refill M4A3 magazines. It comes with a leather strap allowing to wear it on the back."
+	caliber = "9mm"
+	icon_state = "base_m4a3"
+	overlay_content = "_reg"
+	default_ammo = /datum/ammo/bullet/pistol
+
+/obj/item/ammo_box/rounds/pistol/empty
+	empty = TRUE
+
+/obj/item/ammo_box/rounds/pistol/ap
+	name = "\improper pistol ammunition box (9mm AP)"
+	desc = "A 9mm armor-piercing ammunition box. Used to refill mod88 and M4A3 magazines. It comes with a leather strap allowing to wear it on the back."
+	overlay_content = "_ap"
+	default_ammo = /datum/ammo/bullet/pistol/ap
+
+/obj/item/ammo_box/rounds/pistol/ap/empty
+	empty = TRUE
+
+/obj/item/ammo_box/rounds/pistol/hp
+	name = "\improper pistol ammunition box (9mm HP)"
+	desc = "A 9mm hollow-point ammunition box. Used to refill M4A3 magazines. It comes with a leather strap allowing to wear it on the back."
+	overlay_content = "_hp"
+	default_ammo = /datum/ammo/bullet/pistol/hollow
+
+/obj/item/ammo_box/rounds/pistol/hp/empty
+	empty = TRUE
+
+/obj/item/ammo_box/rounds/pistol/incen
+	name = "\improper pistol ammunition box (9mm Incendiary)"
+	desc = "A 9mm incendiary ammunition box. Used to refill M4A3 magazines. It comes with a leather strap allowing to wear it on the back."
+	overlay_content = "_incen"
+	default_ammo = /datum/ammo/bullet/pistol/incendiary
+
+/obj/item/ammo_box/rounds/pistol/incen/empty
+	empty = TRUE
