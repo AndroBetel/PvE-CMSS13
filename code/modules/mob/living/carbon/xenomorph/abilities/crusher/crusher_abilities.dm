@@ -35,6 +35,10 @@
 /datum/action/xeno_action/activable/pounce/crusher_charge/initialize_pounce_pass_flags()
 	pounce_pass_flags = PASS_CRUSHER_CHARGE
 
+/datum/action/xeno_action/activable/pounce/crusher_charge/charger
+	distance = 5
+	knockdown_duration = 1
+
 /datum/action/xeno_action/onclick/crusher_stomp
 	name = "Stomp"
 	action_icon_state = "stomp"
@@ -127,10 +131,15 @@
 	var/last_charge_move
 	/// Dictates speed and damage dealt via collision, increased with movement
 	var/momentum = 0
+	var/minimum_charge_distance = 3
+	var/minimum_targets_to_charge = 2
 
-#define MIN_TARGETS_TO_CHARGE 2
+/datum/action/xeno_action/onclick/charger_charge/charger
+	ai_prob_chance = 100
+	minimum_charge_distance = 1
+	minimum_targets_to_charge = 1
+
 #define FLOCK_SCAN_RADIUS 3
-#define MINIMUM_CHARGE_DISTANCE 3
 #define MAXIMUM_TARGET_DISTANCE 12
 
 /datum/action/xeno_action/onclick/charger_charge/proc/handle_position_change(mob/living/carbon/xenomorph/xeno, body_position)
@@ -155,7 +164,7 @@
 		if(distance_between_base_carbon_and_xeno > MAXIMUM_TARGET_DISTANCE)
 			continue
 
-		if(distance_between_base_carbon_and_xeno < MINIMUM_CHARGE_DISTANCE)
+		if(distance_between_base_carbon_and_xeno < minimum_charge_distance)
 			continue
 
 		if(!base_checked_carbon.ai_can_target(processing_xeno))
@@ -173,7 +182,7 @@
 			secondary_x_sum += secondary_checked_carbon.x
 			secondary_y_sum += secondary_checked_carbon.y
 
-		if(secondary_count < MIN_TARGETS_TO_CHARGE)
+		if(secondary_count < minimum_targets_to_charge)
 			continue
 
 		var/x_middle = round(secondary_x_sum / secondary_count)
@@ -186,12 +195,12 @@
 
 		var/distance_between_potential_charge_turf_and_xeno = get_dist(potential_charge_turf, processing_xeno)
 
-		if(distance_between_potential_charge_turf_and_xeno < MINIMUM_CHARGE_DISTANCE)
+		if(distance_between_potential_charge_turf_and_xeno < minimum_charge_distance)
 			continue
 
 		var/cardinal_dir_to_potential_charge_turf = get_cardinal_dir(processing_xeno, potential_charge_turf)
 
-		var/list/turf/turfs_to_check = getline2(xeno_turf, get_angle_target_turf(xeno_turf, cardinal_dir_to_potential_charge_turf, MINIMUM_CHARGE_DISTANCE), FALSE)
+		var/list/turf/turfs_to_check = getline2(xeno_turf, get_angle_target_turf(xeno_turf, cardinal_dir_to_potential_charge_turf, minimum_charge_distance), FALSE)
 
 		var/blocked = FALSE
 		var/turf/previous_turf = xeno_turf

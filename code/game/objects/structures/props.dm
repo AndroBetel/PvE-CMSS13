@@ -1437,7 +1437,37 @@
 		child.icon_state = "frame_colonel_off"
 		child.set_light(0, 0, "#51A000")
 		child.visible_message("[icon2html(child, viewers(child))] [SPAN_NOTICE("Briefing screen flickers and goes dark.")]")
-		playsound(child, 'sound/machines/click.ogg', 15, 1)
+		playsound(child, 'sound/machines/click.ogg', 35)
 		child.desc = "It's off. Get to mission."
 		return TRUE
 	return ..()
+
+/obj/structure/machinery/ship_loudspeakers
+	name = "loudspeaker"
+	desc = "Those who do not obey orders barked from these will soon find themselves far away from this ship."
+	icon = 'icons/obj/structures/machinery/loudspeaker.dmi'
+	icon_state = "loudspeaker"
+	density = FALSE
+	anchored = TRUE
+	unacidable = 1
+	unslashable = 1
+	use_power = USE_POWER_NONE
+	health = 0
+
+/obj/structure/machinery/ship_loudspeakers/proc/bark_orders(message)
+	visible_message("<span class='danger'>[icon2html(src, viewers(src))]Loudspeaker comes to life, <font size='10'>\"[message]\"</font></span>")
+	playsound(src, 'sound/effects/loudspeakers.ogg', 35)
+
+/client/proc/loudspeakers_speak()
+	set name = "Use Loudspeakers"
+	set category = "Game Master.Extras"
+
+	if(!admin_holder || !check_rights(R_MOD, FALSE))
+		return
+
+	var/message = tgui_input_text(mob, "LOUDSPEAKERS", "LOUDSPEAKERS", "Test message. All hands, ignore this.")
+	if(!message)
+		return
+
+	for(var/obj/structure/machinery/ship_loudspeakers/loudspeaker in world)
+		loudspeaker.bark_orders(message)

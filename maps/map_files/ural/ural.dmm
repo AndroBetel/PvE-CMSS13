@@ -23,6 +23,15 @@
 	icon_state = "floor3"
 	},
 /area/ural/engineering)
+"aI" = (
+/obj/structure/machinery/ship_loudspeakers{
+	dir = 8;
+	pixel_x = 10
+	},
+/turf/open/floor/strata{
+	icon_state = "floor2"
+	},
+/area/ural/lockerroom)
 "aS" = (
 /obj/structure/machinery/power/fusion_engine{
 	name = "\improper S-52 fusion reactor 2"
@@ -79,6 +88,14 @@
 "df" = (
 /turf/closed/wall/strata_outpost/reinforced/hull,
 /area/ural/lockerroom)
+"dr" = (
+/obj/structure/machinery/ship_loudspeakers{
+	pixel_y = 20
+	},
+/turf/open/floor/strata{
+	icon_state = "floor2"
+	},
+/area/ural/medical)
 "dx" = (
 /obj/structure/machinery/door/airlock/prison_hatch/autoname,
 /obj/effect/decal/strata_decals/catwalk/prison,
@@ -167,6 +184,14 @@
 	icon_state = "floor2"
 	},
 /area/ural/briefing)
+"fj" = (
+/obj/structure/machinery/ship_loudspeakers{
+	dir = 1
+	},
+/turf/open/floor/strata{
+	icon_state = "floor2"
+	},
+/area/ural/canteen)
 "fQ" = (
 /obj/structure/machinery/cm_vending/sorted/tech/tool_storage{
 	req_one_access = list()
@@ -228,6 +253,9 @@
 "hx" = (
 /turf/closed/wall/strata_outpost/reinforced/hull,
 /area/ural/briefing)
+"hD" = (
+/turf/open/space/basic,
+/area/ural/engineering)
 "hE" = (
 /obj/structure/machinery/light/small/upp_ship{
 	light_color = "#FF4500";
@@ -239,6 +267,15 @@
 	icon_state = "multi_tiles"
 	},
 /area/ural/hangar)
+"hP" = (
+/obj/structure/machinery/ship_loudspeakers{
+	pixel_y = 20
+	},
+/turf/open/floor/strata{
+	dir = 6;
+	icon_state = "multi_tiles"
+	},
+/area/ural/medical)
 "ia" = (
 /obj/effect/decal/strata_decals/catwalk/prison,
 /obj/structure/machinery/door/airlock/prison_hatch/autoname,
@@ -295,6 +332,10 @@
 	dir = 8
 	},
 /obj/structure/machinery/power/smes/buildable,
+/obj/structure/machinery/ship_loudspeakers{
+	dir = 4;
+	pixel_x = -10
+	},
 /turf/open/floor/almayer{
 	icon_state = "test_floor4"
 	},
@@ -323,6 +364,9 @@
 	icon_state = "floor2"
 	},
 /area/ural/prep)
+"mC" = (
+/turf/closed/wall/strata_outpost/reinforced/hull,
+/area/space)
 "mV" = (
 /turf/open/space/basic,
 /area/space)
@@ -545,6 +589,9 @@
 	icon_state = "floor2"
 	},
 /area/ural/lockerroom)
+"xr" = (
+/turf/open/space/basic,
+/area/ural/lockerroom)
 "xA" = (
 /obj/structure/machinery/power/monitor{
 	name = "Core Power Monitoring"
@@ -554,6 +601,15 @@
 	icon_state = "floor3"
 	},
 /area/ural/engineering)
+"xC" = (
+/obj/structure/machinery/ship_loudspeakers{
+	dir = 4;
+	pixel_x = -10
+	},
+/turf/open/floor/strata{
+	icon_state = "floor2"
+	},
+/area/ural/lockerroom)
 "xZ" = (
 /obj/effect/decal/strata_decals/catwalk/prison,
 /turf/open/floor/plating,
@@ -563,6 +619,16 @@
 /obj/effect/landmark/late_join/upp,
 /turf/open/floor/plating,
 /area/ural/cryo_cells)
+"zB" = (
+/obj/structure/machinery/ship_loudspeakers{
+	dir = 8;
+	pixel_x = 10
+	},
+/turf/open/floor/strata{
+	dir = 8;
+	icon_state = "multi_tiles"
+	},
+/area/ural/lockerroom)
 "zO" = (
 /obj/effect/decal/strata_decals/catwalk/prison,
 /obj/effect/landmark/late_join,
@@ -574,6 +640,9 @@
 	light_color = "#FF4500"
 	},
 /obj/structure/pipes/vents/pump,
+/obj/structure/machinery/ship_loudspeakers{
+	dir = 1
+	},
 /turf/open/floor/strata{
 	dir = 6;
 	icon_state = "multi_tiles"
@@ -594,6 +663,14 @@
 	icon_state = "floor2"
 	},
 /area/ural/canteen)
+"AF" = (
+/obj/structure/machinery/ship_loudspeakers{
+	pixel_y = 20
+	},
+/turf/open/floor/strata{
+	icon_state = "floor2"
+	},
+/area/ural/briefing)
 "AS" = (
 /obj/structure/surface/table/reinforced/almayer_B,
 /turf/open/floor/strata{
@@ -604,15 +681,6 @@
 /obj/effect/decal/strata_decals/catwalk/prison,
 /turf/open/floor/plating,
 /area/ural/cryo_cells)
-"Bx" = (
-/obj/structure/machinery/light/small/upp_ship{
-	light_color = "#FF4500";
-	dir = 4
-	},
-/turf/open/floor/strata{
-	icon_state = "floor2"
-	},
-/area/ural/lockerroom)
 "BK" = (
 /obj/effect/decal/warning_stripes{
 	icon_state = "E";
@@ -696,6 +764,14 @@
 	icon_state = "floor2"
 	},
 /area/ural/canteen)
+"Dc" = (
+/obj/structure/machinery/ship_loudspeakers{
+	dir = 1
+	},
+/turf/open/floor/strata{
+	icon_state = "floor2"
+	},
+/area/ural/prep)
 "EO" = (
 /obj/structure/machinery/cm_vending/sorted/uniform_supply/squad_prep/upp,
 /obj/structure/machinery/light/small/upp_ship{
@@ -731,6 +807,10 @@
 /obj/structure/closet/secure_closet/engineering_welding{
 	req_one_access = list()
 	},
+/obj/structure/machinery/ship_loudspeakers{
+	dir = 8;
+	pixel_x = 10
+	},
 /turf/open/floor/strata{
 	dir = 6;
 	icon_state = "multi_tiles"
@@ -752,6 +832,16 @@
 "Hj" = (
 /turf/open/floor/strata{
 	icon_state = "floor2"
+	},
+/area/ural/lockerroom)
+"It" = (
+/obj/structure/machinery/ship_loudspeakers{
+	dir = 4;
+	pixel_x = -10
+	},
+/turf/open/floor/strata{
+	dir = 8;
+	icon_state = "multi_tiles"
 	},
 /area/ural/lockerroom)
 "Iu" = (
@@ -911,6 +1001,16 @@
 	icon_state = "multi_tiles"
 	},
 /area/ural/engineering)
+"Sr" = (
+/obj/structure/machinery/ship_loudspeakers{
+	dir = 8;
+	pixel_x = 10
+	},
+/turf/open/floor/strata{
+	dir = 8;
+	icon_state = "multi_tiles"
+	},
+/area/ural/hangar)
 "Sv" = (
 /obj/structure/surface/rack,
 /obj/item/clothing/mask/gas{
@@ -979,6 +1079,9 @@
 	light_color = "#FF4500"
 	},
 /obj/structure/pipes/vents/pump,
+/obj/structure/machinery/ship_loudspeakers{
+	dir = 1
+	},
 /turf/open/floor/strata{
 	dir = 6;
 	icon_state = "multi_tiles"
@@ -1017,6 +1120,10 @@
 /obj/effect/decal/strata_decals/catwalk/prison,
 /obj/structure/machinery/cryopod{
 	dir = 1
+	},
+/obj/structure/machinery/ship_loudspeakers{
+	dir = 8;
+	pixel_x = 10
 	},
 /turf/open/floor/plating,
 /area/ural/cryo_cells)
@@ -6178,7 +6285,7 @@ mV
 mV
 mV
 mV
-mV
+hD
 mV
 mV
 mV
@@ -9840,7 +9947,7 @@ mV
 mV
 hx
 hx
-Qv
+AF
 AS
 Nd
 AS
@@ -10769,7 +10876,7 @@ Hj
 gE
 Hj
 Hj
-Hj
+xC
 Hj
 gE
 Hj
@@ -11210,7 +11317,7 @@ vx
 KB
 ku
 Cx
-Cx
+Sr
 hE
 Cx
 eP
@@ -11223,12 +11330,12 @@ QR
 Tr
 cg
 Fp
-Rz
+zB
 UV
 Rz
 Rz
 cg
-Rz
+It
 Fp
 cg
 JG
@@ -11354,7 +11461,7 @@ TQ
 TQ
 TQ
 Cx
-Cx
+Sr
 Cx
 oB
 oB
@@ -11523,13 +11630,13 @@ Xb
 gt
 XL
 QR
-uq
+fj
 OP
-Hj
-Hj
+xr
+df
 Hj
 jB
-Hj
+gE
 Hj
 cg
 Hj
@@ -11677,13 +11784,13 @@ ei
 dx
 ei
 df
-Hj
-Bx
-Hj
-Hj
+xr
+df
 Hj
 Hj
-Bx
+Hj
+Hj
+Hj
 BK
 df
 zX
@@ -11819,7 +11926,7 @@ mV
 mV
 mV
 Zm
-dR
+hP
 Zm
 mV
 mV
@@ -11829,13 +11936,13 @@ ei
 xZ
 ei
 df
+xr
 df
 df
-df
-df
-df
-df
-df
+Hj
+aI
+Hj
+Hj
 df
 df
 mV
@@ -11983,12 +12090,12 @@ ei
 mV
 mV
 mV
-mV
-mV
-mV
-mV
-mV
-mV
+mC
+mC
+mC
+mC
+mC
+mC
 mV
 mV
 mV
@@ -12577,7 +12684,7 @@ mV
 mV
 mV
 Zm
-im
+dr
 im
 im
 im
@@ -12892,7 +12999,7 @@ eB
 dU
 dU
 dU
-dU
+Dc
 ei
 mV
 mV

@@ -968,3 +968,9 @@
 		icon_state = initial(icon_state)
 		user.visible_message(SPAN_NOTICE("[user] decides to keep [src] nice and puffy."), SPAN_NOTICE("You decide to keep [src] nice and puffy."))
 	item_state = icon_state
+
+/obj/item/clothing/accessory/ribbons
+	name = "assortment of medal ribbons"
+	desc = "Colonel's collection of medal ribbons."
+	icon_state = "ribbons"
+	jumpsuit_hide_states = UNIFORM_JACKET_REMOVED

@@ -339,6 +339,7 @@ var/list/roundstart_mod_verbs = list(
 		add_verb(src, /client/proc/toggle_ai_xeno_weeding)
 		add_verb(src, /client/proc/toggle_rappel_menu)
 		add_verb(src, /client/proc/toggle_fire_support_menu)
+		add_verb(src, /client/proc/loudspeakers_speak)
 	if(CLIENT_HAS_RIGHTS(src, R_SERVER))
 		add_verb(src, admin_verbs_server)
 	if(CLIENT_HAS_RIGHTS(src, R_DEBUG))
