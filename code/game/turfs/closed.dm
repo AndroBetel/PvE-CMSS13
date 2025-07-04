@@ -246,6 +246,7 @@
 	icon_state = "wall1"
 	icon = 'icons/turf/shuttle.dmi'
 	layer = ABOVE_TURF_LAYER
+	unacidable = TRUE
 
 /turf/closed/shuttle/is_weedable()
 	return FULLY_WEEDABLE
@@ -290,6 +291,14 @@
 /turf/closed/shuttle/cyclone/transparent
 	opacity = FALSE
 
+/turf/closed/shuttle/pmc
+	name = "\improper Cash Flow"
+	icon = 'icons/turf/dropship_pmc.dmi'
+	icon_state = "1"
+
+/turf/closed/shuttle/pmc/transparent
+	opacity = FALSE
+
 /turf/closed/shuttle/typhoon
 	name = "\improper Typhoon"
 	icon = 'icons/turf/dropship3.dmi'
@@ -322,11 +331,18 @@
 /turf/closed/shuttle/twe_dropship/transparent
 	opacity = FALSE
 
-/turf/closed/shuttle/dropship2/tornado
-	name = "\improper Tornado"
+/turf/closed/shuttle/dropship3
+	name = "\improper Saipan"
 	icon = 'icons/turf/dropship3.dmi'
+	icon_state = "1"
 
-/turf/closed/shuttle/dropship2/tornado/typhoon
+/turf/closed/shuttle/dropship3/transparent
+	opacity = FALSE
+
+/turf/closed/shuttle/dropship3/tornado
+	name = "\improper Tornado"
+
+/turf/closed/shuttle/dropship3/tornado/typhoon
 	name = "\improper Typhoon"
 
 /turf/closed/shuttle/escapepod

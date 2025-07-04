@@ -9,11 +9,6 @@
 		blinded = TRUE
 		silent = 0
 	else //ALIVE. LIGHTS ARE ON
-		if(health <= HEALTH_THRESHOLD_DEAD || (species.has_organ["brain"] && !has_brain()))
-			death(last_damage_data)
-			blinded = TRUE
-			silent = 0
-			return 1
 
 		if(regular_update)
 			if(hallucination)
@@ -42,7 +37,8 @@
 
 		//UNCONSCIOUS. NO-ONE IS HOME
 		if(regular_update && ((getOxyLoss() > 50)))
-			apply_effect(3, PARALYZE)
+			KnockDown(3)
+			Stun(3)
 
 		if((src.species.flags & HAS_HARDCRIT) && HEALTH_THRESHOLD_CRIT > health)
 			var/already_in_crit = FALSE

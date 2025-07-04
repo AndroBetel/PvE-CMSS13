@@ -45,6 +45,7 @@ export const HealthScan = (props) => {
     hugged,
     detail_level,
     permadead,
+    heart_broken,
     advice,
     species,
     holocard,
@@ -115,9 +116,11 @@ export const HealthScan = (props) => {
               <LabeledList.Item label="Condition">
                 <Box color={permadead ? 'red' : 'green'} bold={1}>
                   {permadead
-                    ? 'Permanently deceased'
+                    ? heart_broken
+                      ? 'Myocardial rupture, surgical intervention required'
+                      : 'Permanently deceased'
                     : Synthetic
-                      ? 'Central power system shutdown, reboot possible.'
+                      ? 'Central power system shutdown, reboot possible'
                       : 'Cardiac arrest, defibrillation possible'}
                 </Box>
               </LabeledList.Item>
@@ -393,9 +396,15 @@ const ScannerLimbs = (props) => {
                     </Box>
                   ) : null}
                   {limb.internal_bleeding ? (
-                    <Box inline color={'red'} bold={1}>
-                      [Internal Bleeding]
-                    </Box>
+                    limb.arterial_bleeding ? (
+                      <Box inline color={'red'} bold={1}>
+                        [Internal Bleeding]
+                      </Box>
+                    ) : (
+                      <Box inline color={'pink'} bold={1}>
+                        [Arterial Bleeding!]
+                      </Box>
+                    )
                   ) : null}
                   {limb.limb_status ? (
                     <Box

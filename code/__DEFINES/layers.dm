@@ -11,6 +11,7 @@
 
 //#define AREA_LAYER 1
 
+#define LASER_LAYER 1 //For fire support binocs laser
 #define DISPLACEMENT_PLATE_RENDER_LAYER 1
 #define DISPLACEMENT_PLATE_RENDER_TARGET "*DISPLACEMENT_PLATE_RENDER_TARGET"
 
@@ -171,6 +172,10 @@
 
 #define CINEMATIC_LAYER 21
 
+#define INTRO_PLANE 2001
+#define INTRO_LAYER 26
+#define ABOVE_INTRO_LAYER 27
+
 /// for areas, so they appear above everything else on map file.
 #define AREAS_LAYER 999
 
@@ -222,6 +227,8 @@
 #define FLOOR_PLANE -7
 /// Game Plane, where most of the game objects reside
 #define GAME_PLANE -6
+/// Above Game Plane. For things which are above game objects, but below screen effects.
+#define ABOVE_GAME_PLANE -5
 /// Roof plane, disappearing when entering buildings
 #define ROOF_PLANE -4
 

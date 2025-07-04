@@ -43,7 +43,7 @@
 		M.unset_interaction()
 		vehicle.set_seated_mob(seat, null)
 		if(M.client)
-			M.client.change_view(world_view_size, vehicle)
+			M.client.change_view(GLOB.world_view_size, vehicle)
 			M.client.pixel_x = 0
 			M.client.pixel_y = 0
 			M.reset_view()
@@ -56,7 +56,7 @@
 			M.client.change_view(8, vehicle)
 
 /obj/structure/bed/chair/comfy/vehicle/clicked(mob/user, list/mods) // If you're buckled, you can shift-click on the seat in order to return to camera-view
-	if(user == buckled_mob && mods["shift"] && !user.is_mob_incapacitated())
+	if(user == buckled_mob && mods[SHIFT_CLICK] && !user.is_mob_incapacitated())
 		user.client.change_view(8, vehicle)
 		vehicle.set_seated_mob(seat, user)
 		return TRUE
@@ -108,7 +108,7 @@
 				to_chat(user, SPAN_WARNING("You are unable to use heavy weaponry."))
 			return
 
-	for(var/obj/item/I in user.contents) //prevents shooting while zoomed in, but zoom can still be activated and used without shooting
+	for(var/obj/item/I in user.contents)		//prevents shooting while zoomed in, but zoom can still be activated and used without shooting
 		if(I.zoom)
 			I.zoom(user)
 
@@ -177,7 +177,7 @@
 		M.unset_interaction()
 		vehicle.set_seated_mob(seat, null)
 		if(M.client)
-			M.client.change_view(world_view_size, vehicle)
+			M.client.change_view(GLOB.world_view_size, vehicle)
 			M.client.pixel_x = 0
 			M.client.pixel_y = 0
 	else
@@ -255,7 +255,7 @@
 		M.unset_interaction()
 		vehicle.set_seated_mob(seat, null)
 		if(M.client)
-			M.client.change_view(world_view_size, vehicle)
+			M.client.change_view(GLOB.world_view_size, vehicle)
 			M.client.pixel_x = 0
 			M.client.pixel_y = 0
 			M.reset_view()

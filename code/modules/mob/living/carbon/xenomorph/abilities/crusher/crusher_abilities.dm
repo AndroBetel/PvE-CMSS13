@@ -35,10 +35,6 @@
 /datum/action/xeno_action/activable/pounce/crusher_charge/initialize_pounce_pass_flags()
 	pounce_pass_flags = PASS_CRUSHER_CHARGE
 
-/datum/action/xeno_action/activable/pounce/crusher_charge/charger
-	distance = 5
-	knockdown_duration = 1
-
 /datum/action/xeno_action/onclick/crusher_stomp
 	name = "Stomp"
 	action_icon_state = "stomp"
@@ -46,7 +42,7 @@
 	macro_path = /datum/action/xeno_action/verb/verb_crusher_stomp
 	action_type = XENO_ACTION_CLICK
 	ability_primacy = XENO_PRIMARY_ACTION_2
-	xeno_cooldown = 180
+	xeno_cooldown = 18 SECONDS
 	plasma_cost = 30
 
 	var/damage = 65
@@ -131,17 +127,11 @@
 	var/last_charge_move
 	/// Dictates speed and damage dealt via collision, increased with movement
 	var/momentum = 0
-	var/minimum_charge_distance = 3
-	var/minimum_targets_to_charge = 2
 
-/datum/action/xeno_action/onclick/charger_charge/charger
-	ai_prob_chance = 100
-	minimum_charge_distance = 1
-	minimum_targets_to_charge = 1
-
+#define MIN_TARGETS_TO_CHARGE 2
 #define FLOCK_SCAN_RADIUS 3
+#define MINIMUM_CHARGE_DISTANCE 3
 #define MAXIMUM_TARGET_DISTANCE 12
-
 /datum/action/xeno_action/onclick/charger_charge/proc/handle_position_change(mob/living/carbon/xenomorph/xeno, body_position)
 	SIGNAL_HANDLER
 	if(body_position == LYING_DOWN)
@@ -164,7 +154,7 @@
 		if(distance_between_base_carbon_and_xeno > MAXIMUM_TARGET_DISTANCE)
 			continue
 
-		if(distance_between_base_carbon_and_xeno < minimum_charge_distance)
+		if(distance_between_base_carbon_and_xeno < MINIMUM_CHARGE_DISTANCE)
 			continue
 
 		if(!base_checked_carbon.ai_can_target(processing_xeno))
@@ -182,7 +172,7 @@
 			secondary_x_sum += secondary_checked_carbon.x
 			secondary_y_sum += secondary_checked_carbon.y
 
-		if(secondary_count < minimum_targets_to_charge)
+		if(secondary_count < MIN_TARGETS_TO_CHARGE)
 			continue
 
 		var/x_middle = round(secondary_x_sum / secondary_count)
@@ -195,12 +185,12 @@
 
 		var/distance_between_potential_charge_turf_and_xeno = get_dist(potential_charge_turf, processing_xeno)
 
-		if(distance_between_potential_charge_turf_and_xeno < minimum_charge_distance)
+		if(distance_between_potential_charge_turf_and_xeno < MINIMUM_CHARGE_DISTANCE)
 			continue
 
 		var/cardinal_dir_to_potential_charge_turf = get_cardinal_dir(processing_xeno, potential_charge_turf)
 
-		var/list/turf/turfs_to_check = getline2(xeno_turf, get_angle_target_turf(xeno_turf, cardinal_dir_to_potential_charge_turf, minimum_charge_distance), FALSE)
+		var/list/turf/turfs_to_check = get_line(xeno_turf, get_angle_target_turf(xeno_turf, cardinal_dir_to_potential_charge_turf, MINIMUM_CHARGE_DISTANCE), FALSE)
 
 		var/blocked = FALSE
 		var/turf/previous_turf = xeno_turf
@@ -297,7 +287,7 @@
 	for(var/mob/living/carbon/human/Mob in xeno.loc)
 		if(Mob.body_position == LYING_DOWN && Mob.stat != DEAD)
 			xeno.visible_message(SPAN_DANGER("[xeno] runs [Mob] over!"),
-				SPAN_DANGER("You run [Mob] over!")
+				SPAN_DANGER("We run [Mob] over!")
 			)
 			var/ram_dir = pick(get_perpen_dir(xeno.dir))
 			var/dist = 1
@@ -320,7 +310,7 @@
 			shake_camera(hit_human, 4, 2)
 			if(hit_human.buckled)
 				hit_human.buckled.unbuckle()
-			INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(xeno_throw_human), hit_human, xeno, get_dir(xeno, hit_human), 1, FALSE)
+			INVOKE_ASYNC(xeno, TYPE_PROC_REF(/mob/living/carbon/xenomorph, throw_carbon), hit_human, get_dir(xeno, hit_human), 1, FALSE)
 			to_chat(hit_human, SPAN_XENOHIGHDANGER("You fall backwards as [xeno] gives you a glancing blow!"))
 			hit_human.take_overall_armored_damage(momentum * 4)
 			hit_human.apply_effect(0.5, WEAKEN)
@@ -403,13 +393,13 @@
 
 /datum/action/xeno_action/activable/tumble/proc/handle_mob_collision(mob/living/carbon/Mob)
 	var/mob/living/carbon/xenomorph/Xeno = owner
-	Xeno.visible_message(SPAN_XENODANGER("[Xeno] Sweeps to the side, knocking down [Mob]!"), SPAN_XENODANGER("You knock over [Mob] as you sweep to the side!"))
+	Xeno.visible_message(SPAN_XENODANGER("[Xeno] Sweeps to the side, knocking down [Mob]!"), SPAN_XENODANGER("We knock over [Mob] as we sweep to the side!"))
 	var/turf/target_turf = get_turf(Mob)
 	playsound(Mob,'sound/weapons/alien_claw_block.ogg', 50, 1)
 	Mob.apply_damage(15,BRUTE)
 	if(ishuman(Mob))
 		var/mob/living/carbon/human/Human = Mob
-		xeno_throw_human(Human, Xeno, get_dir(Xeno, Human), 1)
+		Xeno.throw_carbon(Human, distance = 1)
 		Human.apply_effect(1, WEAKEN)
 	else
 		Mob.apply_effect(1, WEAKEN)
